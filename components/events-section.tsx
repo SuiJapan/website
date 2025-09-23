@@ -1,34 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import { events } from "@/lib/events";
 
 /**
  * イベント情報を表示するコンポーネント
  * Lumaイベントの埋め込み表示のみを提供
  */
-
-interface Event {
-  id: string;
-  title: string;
-  lumaUrl: string;
-  lumaEmbedUrl: string;
-}
-
-const events: Event[] = [
-  {
-    id: "1",
-    title: "Sui開発者ミートアップ #1",
-    lumaUrl: "https://luma.com/8u1d0g84",
-    lumaEmbedUrl: "https://luma.com/embed/event/evt-DQVNlzKOYPVebTq/simple",
-  },
-  {
-    id: "2",
-    title: "Move言語ハンズオンワークショップ",
-    lumaUrl: "https://luma.com/dtji6jfn",
-    lumaEmbedUrl: "https://luma.com/embed/event/evt-pduM3jCtJYVWPDd/simple",
-  },
-];
-
 export function EventsSection() {
   return (
     <section className="py-24 px-4">
