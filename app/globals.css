@@ -1,0 +1,224 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* より青っぽいSui公式風のカラーパレットに調整 */
+  --background: oklch(0.04 0.05 240); /* より深いブルー背景 */
+  --foreground: oklch(0.95 0.02 200); /* 明るいシアン */
+  --card: oklch(0.07 0.06 240); /* カード背景もブルー強化 */
+  --card-foreground: oklch(0.9 0.03 200);
+  --popover: oklch(0.07 0.06 240);
+  --popover-foreground: oklch(0.9 0.03 200);
+  --primary: oklch(0.7 0.15 200); /* シアンブルーをプライマリに */
+  --primary-foreground: oklch(0.04 0.05 240);
+  --secondary: oklch(0.12 0.08 220); /* セカンダリもブルー系に */
+  --secondary-foreground: oklch(0.85 0.04 200);
+  --muted: oklch(0.15 0.05 240);
+  --muted-foreground: oklch(0.6 0.06 200);
+  --accent: oklch(0.65 0.18 320); /* アクセントはピンクを残す */
+  --accent-foreground: oklch(0.04 0.05 240);
+  --destructive: oklch(0.6 0.2 0);
+  --destructive-foreground: oklch(0.9 0.03 200);
+  --border: oklch(0.2 0.06 240);
+  --input: oklch(0.12 0.06 240);
+  --ring: oklch(0.7 0.15 200);
+  --chart-1: oklch(0.7 0.15 200); /* シアンブルー */
+  --chart-2: oklch(0.6 0.18 180); /* ディープブルー */
+  --chart-3: oklch(0.65 0.18 320); /* ピンク */
+  --chart-4: oklch(0.6 0.2 30); /* オレンジ */
+  --chart-5: oklch(0.65 0.16 260); /* パープルブルー */
+  --radius: 0.75rem;
+  --sidebar: oklch(0.06 0.05 240);
+  --sidebar-foreground: oklch(0.9 0.03 200);
+  --sidebar-primary: oklch(0.7 0.15 200);
+  --sidebar-primary-foreground: oklch(0.04 0.05 240);
+  --sidebar-accent: oklch(0.12 0.08 220);
+  --sidebar-accent-foreground: oklch(0.85 0.04 200);
+  --sidebar-border: oklch(0.2 0.06 240);
+  --sidebar-ring: oklch(0.7 0.15 200);
+}
+
+.dark {
+  /* ダークモードでもブルー系を強化 */
+  --background: oklch(0.02 0.05 240);
+  --foreground: oklch(0.98 0.02 200);
+  --card: oklch(0.05 0.06 240);
+  --card-foreground: oklch(0.95 0.03 200);
+  --popover: oklch(0.05 0.06 240);
+  --popover-foreground: oklch(0.95 0.03 200);
+  --primary: oklch(0.75 0.16 200);
+  --primary-foreground: oklch(0.02 0.05 240);
+  --secondary: oklch(0.1 0.08 220);
+  --secondary-foreground: oklch(0.9 0.04 200);
+  --muted: oklch(0.13 0.05 240);
+  --muted-foreground: oklch(0.65 0.06 200);
+  --accent: oklch(0.7 0.2 320);
+  --accent-foreground: oklch(0.02 0.05 240);
+  --destructive: oklch(0.65 0.22 0);
+  --destructive-foreground: oklch(0.95 0.03 200);
+  --border: oklch(0.18 0.06 240);
+  --input: oklch(0.1 0.06 240);
+  --ring: oklch(0.75 0.16 200);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* サイファーパンク＋水のカスタムスタイル追加 */
+@layer utilities {
+  .water-ripple {
+    background: radial-gradient(
+      circle at 50% 50%,
+      oklch(0.7 0.15 200 / 0.15) 0%,
+      oklch(0.6 0.18 180 / 0.1) 30%,
+      oklch(0.65 0.18 320 / 0.05) 60%,
+      transparent 80%
+    );
+    animation: ripple 4s ease-in-out infinite;
+  }
+
+  .cyber-glow {
+    box-shadow:
+      0 0 20px oklch(0.7 0.15 200 / 0.4),
+      0 0 40px oklch(0.6 0.18 180 / 0.3),
+      inset 0 0 20px oklch(0.65 0.18 320 / 0.1);
+  }
+
+  .glass-effect {
+    background: oklch(0.07 0.06 240 / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.7 0.15 200 / 0.3);
+  }
+
+  .water-flow {
+    background: linear-gradient(
+      135deg,
+      oklch(0.04 0.05 240) 0%,
+      oklch(0.07 0.06 240) 25%,
+      oklch(0.12 0.08 220) 50%,
+      oklch(0.07 0.06 240) 75%,
+      oklch(0.04 0.05 240) 100%
+    );
+    background-size: 400% 400%;
+    animation: flow 8s ease-in-out infinite;
+  }
+
+  .sui-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.7 0.15 200) 0%,
+      oklch(0.6 0.18 180) 20%,
+      oklch(0.65 0.18 320) 40%,
+      oklch(0.6 0.2 30) 60%,
+      oklch(0.65 0.16 260) 80%,
+      oklch(0.7 0.15 200) 100%
+    );
+    background-size: 300% 300%;
+    animation: sui-flow 6s ease-in-out infinite;
+  }
+
+  .light-trail {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      oklch(0.7 0.15 200 / 0.4) 15%,
+      oklch(0.6 0.18 180 / 0.6) 30%,
+      oklch(0.65 0.18 320 / 0.5) 50%,
+      oklch(0.6 0.2 30 / 0.4) 70%,
+      oklch(0.65 0.16 260 / 0.3) 85%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: trail 3s linear infinite;
+  }
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes sui-flow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes trail {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
