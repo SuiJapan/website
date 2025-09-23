@@ -68,7 +68,9 @@ export function CommunitySection() {
   return (
     <section className="py-24 px-4 relative">
       {/* 背景エフェクト */}
-      <div className="absolute inset-0 water-ripple opacity-30" />
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 water-ripple opacity-30" />
+      </div>
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
