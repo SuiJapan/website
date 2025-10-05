@@ -31,7 +31,7 @@ export function Footer() {
         },
         {
           name: "X (Twitter)",
-          url: "https://x.com/SuiNetwork_JP",
+          url: "https://x.com/Sui_JPCommunity",
           icon: Twitter,
         },
       ],
