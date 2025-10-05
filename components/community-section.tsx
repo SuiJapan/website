@@ -60,7 +60,7 @@ export function CommunitySection() {
       icon: Twitter,
       name: "X (Twitter)",
       description: "最新ニュースとコミュニティアップデート",
-      url: "https://x.com/SuiNetwork_JP",
+      url: "https://x.com/Sui_JPCommunity",
       color: "hover:bg-primary/10",
     },
   ];
